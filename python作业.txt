@@ -14,3 +14,17 @@ O(n)。
 平均情况：由于算法的执行不依赖于数组元素的特定顺序（除了第一个元素用于初始化），平均时间复杂度同样是 
 O(n)
 O(n)。
+function findMinMax(a, n):
+    if n == 0:
+        return None, None  # 如果数组为空，则返回None
+
+    maxe = a[0]
+    mine = a[0]
+
+    for i from 1 to n-1:
+        if a[i] > maxe:
+            maxe = a[i]
+        if a[i] < mine:
+            mine = a[i]
+
+    return maxe, mine__CLOSED__
