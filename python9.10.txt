@@ -1,0 +1,591 @@
+随机四则运算
+import random
+random.seed(0)  # 随机数种子，用于评测，请不要修改
+
+
+# 在注释语句后面补充合适的代码，使程序能完成预期的功能
+def calculator(n, maximum):
+    """随机产生n道正整数四则运算的题目,用户输入计算结果，
+    判断输入正确与否,并统计正确率。题目保证减法不出现负数."""
+    correct = 0
+    for i in range(n):  # 循环n次，每次产生一个新问题
+        b = random.randint(0, maximum)  # 随机产生一个maximum以内整数
+        a = random.randint(b, maximum)  # 随机产生一个b到maximum以内整数，避免减法出现负数
+        sign = random.choice('+-*/')    # 随机获取一个运算符号
+        # 先输出一个格式化的计算表达式并保持光标不换到下一行，类似5+10=
+question = f"{a} {sign} {b} = "  # 生成题目
+        print(question, end='')  # 输出题目并保持光标不换行
+        
+        # 尝试获取用户输入，并转换为浮点类型
+        try:
+            user_answer = float(input())
+        except ValueError:
+            print("输入无效，请输入一个数字。")
+            continue
+        
+        # 根据运算符号计算结果
+        if sign == '+':
+            correct_answer = a + b
+        elif sign == '-':
+            correct_answer = a - b
+        elif sign == '*':
+            correct_answer = a * b
+        else:  # sign == '/'
+            if b == 0:  # 避免除以0
+                continue
+            correct_answer = a / b
+        
+        # 判断用户答案是否正确，并给出反馈
+        if user_answer == correct_answer:
+            print("恭喜你，回答正确！")
+            correct += 1
+        else:
+            print(f"回答错误，你要加油哦！正确答案是：{correct_answer}")
+    
+    # 输出正确率
+    accuracy = (correct / n) * 100
+    print(f"你总共答对了{correct}题，正确率为：{accuracy:.2f}%")
+
+# 示例调用
+calculator(5, 100)
+        # 接受用户输入的一个浮点数，并转换为浮点类型
+
+        # 如果计算结果正确，输出'恭喜你，回答正确'并统计答对的次数，注意满足条件时执行的语句要缩进
+
+
+
+
+        # 否则输出'回答错误，你要加油哦！'
+
+            
+    # 以下语句不要修改
+    print(f'答对{correct}题，正确率为{correct / n * 100}%')
+
+
+# 以下语句不要修改
+if __name__ == '__main__':
+    num = int(input('请输入出题数量：'))
+    m = int(input('请输入参与计算的最大数字：'))
+    calculator(num, m)  # 调用函数完成计算
+欢迎入学
+
+name = input("")  # 输入学生的姓名                             
+########### Begin ############
+# 输出以上界面
+print("|++++++++++++++++++++++|")
+print("|                      |")
+print("|   Welcome to WHUT    |")
+print("|                      |")
+print("|++++++++++++++++++++++|")
+
+
+# 输出“欢迎您，***同学！”
+print("欢迎您，{}同学！".format(name))
+########### End ############
+日期格式化输入
+year = input("请输入年份：")  # 输入当前年
+month = input("请输入月份：")  # 输入当前月
+date = input("请输入日期：")  # 输入当前日
+
+# 使用字符串拼接方法输出
+formatted_date = year + "年" + month.zfill(2) + "月" + date.zfill(2) + "日"
+print(formatted_date)
+year = input()                         # 输入当前年
+month = input()                        # 输入当前月
+date = input()                         # 输入当前日
+# =======================================================
+# 此处去掉注释符号“#”并补充你的代码
+formatted_date = f"{year} {month:02d} {date:02d}"
+print(formatted_date)
+# =======================================================
+year = input()                         # 输入当前年
+month = input()                        # 输入当前月
+date = input()                         # 输入当前日
+# =======================================================
+# 此处去掉注释符号“#”并补充你的代码
+print(f"{year}-{month:02d}-{date:02d}")  # 使用连字符“-”分隔
+print(f"{year}/{month:02d}/{date:02d}")  # 使用斜线“/”分隔
+print(f"{month:02d},{date:02d},{year}")  # 使用逗号“,”分隔，并调整顺序为月，日，年
+# =======================================================
+year = input("请输入年份：")  # 输入当前年
+month = input("请输入月份：")  # 输入当前月
+date = input("请输入日期：")  # 输入当前日
+
+# 使用str.format()格式输出
+formatted_date = "{0}年{1:02d}月{2:02d}日".format(year, int(month), int(date))
+print(formatted_date)
+输入训练
+
+
+
+user_input = input("")
+
+# 输出用户输入的信息
+print("", user_input)
+
+user_input = input('请输入一个整数：')
+print(user_input)
+
+
+user_input = input("")
+
+# 将字符串重复10次
+repeated_string = user_input * 10
+
+# 输出重复后的字符串
+print("", repeated_string)
+
+
+
+str1 = input("")
+str2 = input("")
+str3 = input("")
+
+# 2. 创建一个空字符串用于存储最终拼接的结果
+result = ""
+
+# 3. 将三个字符串按顺序拼接到一起
+result = str1 + str2 + str3
+
+# 4. 输出拼接好的字符串
+print("", result)
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+str_input = input("")
+
+# 将输入的字符串转换为整数
+try:
+    num = int(str_input)
+except ValueError:
+    print("")
+    exit()
+
+# 完成一些基本的数值运算
+print("", num * 4)
+num_str1 = input()
+
+# 第二步：将第一个数值字符串转换为浮点数
+num1 = float(num_str1)
+
+# 第三步：获取用户输入的第二个数值字符串
+num_str2 = input()
+
+# 第四步：将第二个数值字符串转换为浮点数
+num2 = float(num_str2)
+
+# 第五步：计算两个浮点数的乘积
+product = num1 * num2
+
+# 第六步：输出乘积结果
+print(product)
+user_input = input("")
+
+# 2. 使用eval()函数处理用户输入，将其转化为可计算的对象
+evaluated_input = eval(user_input)
+
+# 3. 将处理后的结果乘以3
+result = evaluated_input * 3
+
+# 4. 输出最终结果
+print("", result)
+输出训练
+user_input = input("")
+
+# 将用户输入的字符串原样输出
+print("", user_input)
+str1 = ""
+str2 = ""
+str3 = ""
+
+# 获取用户输入
+str1 = input("")
+str2 = input("")
+str3 = input("")
+
+# 合并并输出
+print(str1, str2, str3)
+str1 = ""
+str2 = ""
+str3 = ""
+separator = ""
+
+# 获取用户输入
+str1 = input("")
+str2 = input("")
+str3 = input("")
+separator = input("")
+
+# 输出结果
+print(str1, str2, str3, sep=separator)
+year = input("")
+month = input("")
+day = input("")
+weather = input("")
+
+# 步骤2：设计输出格式字符串，预留四个替换域
+output_format = "今天是{0}年{1}月{2}日，天气{3}。"
+
+# 步骤3：使用str.format()方法填充替换域
+formatted_output = output_format.format(year, month, day, weather)
+
+# 步骤4：打印最终的格式化输出
+print(formatted_output)
+year = input("")
+month = input("")
+day = input("")
+weather = input("")
+
+# 使用f-string格式化输出
+output_string = f'今天是{year}年{month}月{day}日，天气{weather}。'
+
+# 打印结果
+print(output_string)align_sign = input()  # 读取对齐符号
+width = int(input())  # 读取宽度，并转换为整型
+
+# 步骤2：定义圆周率值
+pi_2_decimal = 3.14
+pi_4_decimal = 3.1415
+pi_7_decimal = 3.1415926
+
+# 步骤3：格式化并输出圆周率值
+print(f'圆周率值为：{pi_2_decimal:{align_sign}{width}.{2}}')
+print(f'圆周率值为：{pi_4_decimal:{align_sign}{width}.{4}}')
+print(f'圆周率值为：{pi_7_decimal:{align_sign}{width}.{7}}'
+pi = 3.14159265358979
+
+# 获取用户输入并转换为整数
+m = int(input(""))
+
+# 使用f-string格式化输出，保留m位小数的圆周率值
+print(f'圆周率值为：{pi:.{m}f}')
+简单的个人信息展示
+name = input("请输入您的姓名：")
+
+# 步骤2: 获取年龄并转换为整数
+age = int(input("请输入您的年龄："))
+
+# 步骤3: 获取身高并转换为浮点数
+height = float(input("请输入您的身高（米）："))
+
+# 步骤4: 格式化输出
+print(f"姓名：{name}")
+print(f"年龄：{age} 岁")
+print(f"身高：{height} 米")
+
+模拟游戏对话
+
+
+name = input("请输入角色的名字：")
+
+# 提示并接收角色等级
+level = input("请输入角色的等级：")
+
+# 提示并接收金币数量
+gold = input("请输入角色拥有的金币数量：")
+
+# 格式化输出角色信息
+print(f"欢迎，勇敢的 {name}!")
+print(f"你现在的等级是 {level} 级。")
+print(f"你拥有 {gold} 个金币。")
+print(f"{name}，继续你的冒险吧！")
+
+# 结束程序
+# 此步骤在Python脚本中也不需要显式代码，因为脚本执行到最后自然结束
+
+
+股票交易收益计算器
+
+buy_price = float(input(""))
+sell_price = float(input(""))
+hold_num = int(input(""))
+
+# 计算总收益
+total_profit = (sell_price - buy_price) * hold_num
+
+# 格式化输出结果
+print("该预期输出不可查看")
+BMI（身体质量指数）计算器
+
+weight_input = input("请输入您的体重（公斤）：")
+
+# 2. 提示用户输入身高（米）
+height_input = input("请输入您的身高（米）：")
+
+# 3. 将输入的体重和身高转换为浮点数
+weight = float(weight_input)
+height = float(height_input)
+
+# 4. 计算BMI值
+bmi = weight / (height ** 2)
+
+# 5. 输出BMI值，保留两位小数
+print(f"您的BMI值为：{bmi:.2f}")
+
+# 6. 根据BMI值输出对应的健康建议
+if bmi < 18.5:
+    print("体重过轻")
+elif 18.5 <= bmi < 24.9:
+    print("体重正常")
+elif 25 <= bmi < 29.9:
+    print("体重超重")
+else:
+    print("肥胖")
+
+数学运算综合训练
+
+a = 8
+b = 9
+# 补充你的代码，计算并输出a与b的和
+
+# 定义两个整数变量
+num1 = 8
+num2 = 9
+
+# 计算这两个整数的和
+sum_result = num1 + num2
+
+# 输出计算得到的和
+print(sum_result)
+num1_str = input("")
+num2_str = input("")
+
+# 将输入的字符串转换为整数
+num1 = int(num1_str)
+num2 = int(num2_str)
+
+# 计算两个整数的和
+sum = num1 + num2
+
+# 输出计算得到的和
+print("", sum)
+num1_input = input('')
+num1 = int(num1_input)  # 步骤2: 转换为整数
+
+# 步骤3: 提示并接收第二个整数
+num2_input = input('')
+num2 = int(num2_input)  # 步骤4: 转换为整数
+
+# 步骤5: 计算两数之和
+sum = num1 + num2
+
+# 步骤6: 输出结果
+print(sum)
+first_input = input('请输入第一个整数：')
+
+# 步骤2: 将第一个输入转换为整数
+num1 = int(first_input)
+
+# 步骤3: 提示并接收第二个整数
+second_input = input('请输入第二个整数：')
+
+# 步骤4: 将第二个输入转换为整数
+num2 = int(second_input)
+
+# 步骤5: 执行各种运算
+sum_result = num1 + num2
+sub_result = num1 - num2
+mul_result = num1 * num2
+div_result = num1 / num2
+floordiv_result = num1 // num2
+mod_result = num1 % num2
+power_result = num1 ** num2
+
+# 步骤6: 输出所有运算结果
+print(sum_result, sub_result, mul_result, div_result, floordiv_result, mod_result, power_result)
+num1_str = input('请输入第一个整数：')
+# 提示用户输入第二个整数
+num2_str = input('请输入第二个整数：')
+
+# 将输入的字符串转换为整数
+num1 = int(num1_str)
+num2 = int(num2_str)
+
+# 计算两个整数的加、减、乘、除、整除、取模、幂运算的结果
+addition_result = num1 + num2
+subtraction_result = num1 - num2
+multiplication_result = num1 * num2
+division_result = num1 / num2
+floor_division_result = num1 // num2
+modulus_result = num1 % num2
+power_result = num1 ** num2
+
+# 使用print()函数结合f-string格式化输出每种运算的结果
+print(f'{num1} + {num2} = {addition_result}')
+print(f'{num1} - {num2} = {subtraction_result}')
+print(f'{num1} * {num2} = {multiplication_result}')
+print(f'{num1} / {num2} = {division_result}')
+print(f'{num1} // {num2} = {floor_division_result}')
+print(f'{num1} % {num2} = {modulus_result}')
+print(f'{num1} ** {num2} = {power_result}')
+num1_input = input('请输入第一个整数：')
+
+# 步骤2：提示用户输入第二个整数并接收输入
+num2_input = input('请输入第二个整数：')
+
+# 步骤3：将输入的字符串转换为整数
+num1 = int(num1_input)
+num2 = int(num2_input)
+
+# 步骤4：计算加减乘除的结果
+add_result = num1 + num2
+sub_result = num1 - num2
+mul_result = num1 * num2
+div_result = num1 / num2
+
+# 步骤5：使用f-string格式化输出结果
+print(f'{num1} + {num2} = {add_result}')
+print(f'{num1} - {num2} = {sub_result}')
+print(f'{num1} * {num2} = {mul_result}')
+print(f'{num1} / {num2} = {div_result:.4f}')
+print("请输入第一个浮点数：请输入第二个浮点数：")
+# 接收用户输入的字符串，并转换为浮点数
+num1 = float(input())
+
+# 输出提示信息，让用户输入第二个浮点数
+# 接收用户输入的字符串，并转换为浮点数
+num2 = float(input())
+
+# 计算两个浮点数的加、减、乘、除结果
+result_add = num1 + num2
+result_sub = num1 - num2
+result_mul = num1 * num2
+result_div = num1 / num2
+
+# 使用print()函数结合格式化字符串输出每种运算的结果
+print(f'{num1} + {num2} = {result_add:.2f}')
+print(f'{num1} - {num2} = {result_sub:.2f}')
+print(f'{num1} * {num2} = {result_mul:.2f}')
+print(f'{num1} / {num2} = {result_div:.2f}')
+expression = input("")
+
+# 使用eval()函数计算表达式的值
+result = eval(expression)
+
+# 输出结果，保留三位小数
+print(round(result, 3))
+人机交互自学引导
+print("Hello, World!")
+print("李白，你好！")
+print("李白,你好!")
+name = input("")
+separator = input("")
+
+# 输出格式化的字符串
+print(f"{name}{separator}你好！")
+人机交互视频同步实训
+year = 2023
+month = 10
+day = 6
+# 在一行中输出year, month, day的值，用斜杠分隔：
+# 请修改下面语句，通过增加end参数完成任务
+
+# 在一行中输出year, month, day的值，用斜杠分隔
+print(year, month, day, sep="/")
+class InputOutputHandler:
+    def __init__(self):
+        # 初始化时不需要做任何事情
+        pass
+
+    def get_input(self):
+        # 获取用户输入
+        user_input = input("今年是:")
+        return user_input
+
+    def output(self, text):
+        # 输出文本
+        print(text)
+
+# 创建InputOutputHandler类的实例
+handler = InputOutputHandler()
+
+# 获取用户输入
+user_input = handler.get_input()
+
+# 输出用户输入的内容
+handler.output(user_input)
+class OutputFormatter:
+    def __init__(self):
+        # 初始化时不需要做任何事情
+        pass
+
+    def format_output(self, year, month，day):
+        # 使用f-string格式化输出
+        formatted_string = f"年：{year}，月：{month}，日{day}。"
+        return formatted_string
+
+# 创建OutputFormatter类的实例
+formatter = OutputFormatter()
+
+# 获取用户输入
+year = input("")
+month = input("")
+day=input("")
+
+# 使用实例格式化输出
+formatted_output = formatter.format_output(year, month,day)
+print(formatted_output)
+字符串输出
+print("眼过千遍不如手过一遍！")
+print("书看千行不如手敲一行！")
+num1 = int(input(""))
+num2 = int(input(""))
+
+# 计算两个正整数的和
+sum = num1 + num2
+
+# 输出结果
+print("", sum)
+控制小数输出精度
+def format_decimal(number, precision):
+    """
+    格式化小数输出，控制小数精度。
+    
+    参数:
+    number -- 要格式化的数字
+    precision -- 小数点后保留的位数
+    
+    返回:
+    格式化后的字符串
+    """
+    return f"{number:.{precision}f}"
+
+# 使用示例
+number = 3.1415926
+precision = 3
+formatted_number = format_decimal(number, precision)
+print(formatted_number)  # 输出: 3.142
+自我介绍
+def introduce_myself():
+    # 定义自我介绍信息
+    name = "张三"
+    location = 20
+    hobbies = ["羽毛球"]
+    introduction = f"我的名字是{name}，来自{location}，我的爱好是{', '.join(hobbies)}。"
+    
+    # 输出自我介绍
+    print(introduction)
+
+# 调用函数，执行自我介绍
+introduce_myself()
+计算矩形面积
+a = eval(input(""))
+
+# 使用float()接收宽，确保输入被转换为浮点数
+b = float(input(""))
+
+# 计算面积
+area = a * b
+
+# 输出面积结果
+print("", area)
